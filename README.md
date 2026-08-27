@@ -59,8 +59,6 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
 
 \*\*Request body example:\*\*
 
-```json
-
 {
 
 &#x20; "id": 1,
@@ -78,8 +76,6 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
 &#x20; "status": "available"
 
 }
-
-```
 
 
 

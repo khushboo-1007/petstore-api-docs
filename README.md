@@ -13,11 +13,14 @@ The Swagger Petstore is a sample API used for learning and practicing how RESTfu
 \- `GET /pet/{petId}` — fetch one specific pet by ID
 
 
+
 \## Get Pets by Status
 
 
 
 \*\*Method:\*\* `GET`
+
+
 
 \*\*Path:\*\* `/pet/findByStatus`
 
@@ -41,13 +44,13 @@ This endpoint returns a list of pets filtered by their status. Each pet in the r
 
 
 
-
-
 \## Add a New Pet
 
 
 
 \*\*Method:\*\* `POST`
+
+
 
 \*\*Path:\*\* `/pet`
 
@@ -58,6 +61,10 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
 
 
 \*\*Request body example:\*\*
+
+
+
+```json
 
 {
 
@@ -77,6 +84,8 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
 
 }
 
+```
+
 
 
 \*\*Possible responses:\*\*
@@ -92,6 +101,8 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
 
 
 \*\*Method:\*\* `GET`
+
+
 
 \*\*Path:\*\* `/pet/{petId}`
 

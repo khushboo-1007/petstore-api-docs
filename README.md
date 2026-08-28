@@ -30,7 +30,7 @@ This endpoint returns a list of pets filtered by their status. Each pet in the r
 This endpoint adds a new pet to the store. To create a pet, send its details in the request body, including `id`, `name`, `category`, and `status`.
 
 **Request body example:**
-
+```json
 {
   "id": 1,
   "name": "Buddy",
@@ -40,10 +40,11 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
   },
   "status": "available"
 }
-
+```
 **Possible responses:**
 - `201 Created` — the new pet was successfully added
 - `422 Unprocessable Entity` — the request was understood, but some field values were invalid (e.g. `id` sent as text instead of a number)
+
 
 ## Get Pet by ID
 

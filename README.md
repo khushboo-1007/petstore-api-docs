@@ -5,6 +5,8 @@ The Swagger Petstore is a sample API used for learning and practicing how RESTfu
 - `GET /pet/findByStatus` — fetch pets by status
 - `POST /pet` — add a new pet
 - `GET /pet/{petId}` — fetch one specific pet by ID
+- `PUT /pet` - update the details of a pet
+- `DELETE /pet/{petId}` - delete a pet
 
 ## Get Pets by Status
 

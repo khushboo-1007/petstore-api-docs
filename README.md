@@ -46,6 +46,30 @@ This endpoint adds a new pet to the store. To create a pet, send its details in 
 - `422 Unprocessable Entity` — the request was understood, but some field values were invalid (e.g. `id` sent as text instead of a number)
 
 
+## Update a Pet
+
+**Method:** `PUT`
+
+**Path:** `/pet`
+
+This endpoint updates an existing pet's details. Since PUT replaces the entire pet object, the request body must include the pet's existing `id`, along with all its updated fields.
+
+**Request body example:**
+
+{
+  "id": 1,
+  "name": "Buddy",
+  "category": {
+    "id": 1,
+    "name": "Dogs"
+  },
+  "status": "sold"
+}
+
+**Possible responses:**
+- `200 OK` — pet updated successfully
+- `404 Not Found` — no pet exists with the given ID
+
 ## Get Pet by ID
 
 **Method:** `GET`
@@ -59,6 +83,21 @@ This endpoint returns the details of one specific pet, identified by its ID. The
 
 **Possible responses:**
 - `200 OK` — pet found, returns pet details
+- `404 Not Found` — no pet exists with the given ID
+
+## Delete a Pet by ID
+
+**Method:** `DELETE`
+
+**Path:** `/pet/{petId}`
+
+This endpoint deletes the pet with the specific ID. The response body is empty after successful deletion.
+
+**Parameters:**
+- `petId` (required, path parameter) — the ID of the pet to retrieve
+
+**Possible responses:**
+- `200 OK` — pet deleted
 - `404 Not Found` — no pet exists with the given ID
 
 ## About This Documentation

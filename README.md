@@ -102,6 +102,74 @@ This endpoint deletes the pet with the specific ID. The response body is empty a
 - `200 OK` — pet deleted
 - `404 Not Found` — no pet exists with the given ID
 
+## Get Pet Inventory
+
+**Method:** `GET`
+
+**Path:** `/store/inventory`
+
+This endpoint returns a summary of pet counts, grouped by their current status (available, pending, or sold).
+
+**Response body example:**
+
+{
+  "available": 12,
+  "pending": 3,
+  "sold": 5
+}
+
+**Possible responses:**
+- `200 OK` — inventory summary returned successfully
+
+## Place an order
+
+**Method:** `POST`
+
+**Path:** `/store/order`
+
+This endpoint creates a new order for a pet, recording details like which pet was ordered, the quantity, and the shipping date.
+
+**Request body example:**
+
+{
+  "id": 1,
+  "petId": 10,
+  "quantity": 1,
+  "shipDate": "2026-10-11",
+  "status": "placed",
+  "complete": false
+}
+
+**Possible responses:**
+- `201 Created` — order placed successfully
+- `400 Bad Request` — invalid order details provided
+
+## Get Order by ID
+
+**Method:** `GET`
+
+**Path:** `/store/order/{orderId}`
+
+This endpoint returns the details of a specific order, including its quantity, shipping date, status, and whether it's complete.
+
+**Parameters:**
+- `orderId` (required, path parameter) — the ID of the order to retrieve
+
+**Response body example:**
+
+{
+  "id": 1,
+  "petId": 10,
+  "quantity": 1,
+  "shipDate": "2026-10-11",
+  "status": "placed",
+  "complete": false
+}
+
+**Possible responses:**
+- `200 OK` — order found
+- `404 Not Found` — no order exists with the given ID
+
 ## About This Documentation
 
 This documentation was created as a practice project to demonstrate API documentation skills, covering the Swagger Petstore's `pet` endpoints. It includes endpoint descriptions, request/response examples, and possible status codes for each operation.

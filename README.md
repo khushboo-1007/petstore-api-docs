@@ -170,6 +170,203 @@ This endpoint returns the details of a specific order, including its quantity, s
 - `200 OK` — order found
 - `404 Not Found` — no order exists with the given ID
 
+## Delete an Order by ID
+
+**Method:** `DELETE`
+
+**Path:** `/store/order/{orderId}`
+
+This endpoint deletes the order with the specified ID. The response body is empty after a successful deletion.
+
+**Parameters:**
+- `orderId` (required, path parameter) — the ID of the order to delete
+
+**Possible responses:**
+- `200 OK` — order deleted
+- `404 Not Found` — no order exists with the given ID
+
+## Create a User
+
+**Method:** `POST`
+
+**Path:** `/user`
+
+This endpoint creates a new user account, recording details like username, name, email, password, phone number, and account status.
+
+**Request body example:**
+
+{
+  "id": 1,
+  "username": "laila1",
+  "firstName": "Laila",
+  "lastName": "Rills",
+  "email": "laila@example.com",
+  "password": "password123",
+  "phone": "9876543210",
+  "userStatus": 1
+}
+
+**Possible responses:**
+- `201 Created` — user created successfully
+- `400 Bad Request` — invalid details provided
+
+## Create Multiple Users
+
+**Method:** `POST`
+
+**Path:** `/user/createWithList`
+
+This endpoint creates multiple user accounts in a single request. Instead of calling `POST /user` repeatedly for each user, the request body accepts an array of user objects.
+
+**Request body example:**
+
+[
+  {
+    "id": 1,
+    "username": "laila1",
+    "firstName": "Laila",
+    "lastName": "Rills",
+    "email": "laila@example.com",
+    "password": "password123",
+    "phone": "9876543210",
+    "userStatus": 1
+  },
+  {
+    "id": 2,
+    "username": "arjun2",
+    "firstName": "Arjun",
+    "lastName": "Mehta",
+    "email": "arjun@example.com",
+    "password": "password123",
+    "phone": "9876543211",
+    "userStatus": 1
+  },
+  {
+    "id": 3,
+    "username": "priya3",
+    "firstName": "Priya",
+    "lastName": "Shah",
+    "email": "priya@example.com",
+    "password": "password123",
+    "phone": "9876543212",
+    "userStatus": 1
+  }
+]
+
+**Possible responses:**
+- `201 Created` — users created successfully
+- `400 Bad Request` — invalid details provided
+
+## Get User by Username
+
+**Method:** `GET`
+
+**Path:** `/user/{username}`
+
+This endpoint returns the details of a user, identified by their username. The response includes details like `id`, `firstName`, `lastName`, `email`, `password`, `phone`, and `userStatus`.
+
+**Parameters:**
+- `username` (required, path parameter) — the username of the user to retrieve
+
+**Response body example:**
+{
+  "id": 3,
+  "username": "priya3",
+  "firstName": "Priya",
+  "lastName": "Shah",
+  "email": "priya@example.com",
+  "password": "password123",
+  "phone": "9876543212",
+  "userStatus": 1
+}
+
+**Possible responses:**
+- `200 OK` — user found
+- `404 Not Found` — no user exists with the given username
+
+## Update a User
+
+**Method:** `PUT`
+
+**Path:** `/user/{username}`
+
+This endpoint updates an existing user's details. The username in the path identifies which user to update, and the request body should include all the user's updated fields.
+
+**Parameters:**
+- `username` (required, path parameter) — the username of the user to update
+
+**Request body example:**
+
+{
+  "id": 3,
+  "username": "priya3",
+  "firstName": "Priya",
+  "lastName": "Shah",
+  "email": "priya@example.com",
+  "password": "password123",
+  "phone": "9876543212",
+  "userStatus": 1
+}
+
+**Possible responses:**
+- `200 OK` — user updated successfully
+- `404 Not Found` — no user exists with the given username
+
+## Delete a user
+
+**Method:** `DELETE`
+
+**Path:** `/user/{username}`
+
+This endpoint deletes the user with the specified username. The response body is empty after a successful deletion.
+
+**Parameters:**
+- `username` (required, path parameter) — the username of the user to delete
+
+**Possible responses:**
+- `200 OK` — user deleted
+- `404 Not Found` — no user exists with the given username
+
+## Log In a User
+
+**Method:** `GET`
+
+**Path:** `/user/login`
+
+This endpoint logs in a user by verifying their username and password, sent as query parameters. On success, it returns a session token.
+
+**Parameters:**
+- `username` (required, query parameter) — the user's username
+- `password` (required, query parameter) — the user's password
+
+**Response body example:**
+
+{
+  "token": "abc123xyz"
+}
+
+**Possible responses:**
+- `200 OK` — login successful, returns a session token
+- `400 Bad Request` — invalid username or password
+
+## Log Out a User
+
+**Method:** `GET`
+
+**Path:** `/user/logout`
+
+This endpoint logs out the currently logged-in user. No parameters are required.
+
+**Response body example:**
+
+{
+  "message": "User logged out successfully"
+}
+
+**Possible responses:**
+- `200 OK` — user logged out successfully
+- `400 Bad Request` — unexpected error
+
 ## About This Documentation
 
 This documentation was created as a practice project to demonstrate API documentation skills, covering the Swagger Petstore's `pet` endpoints. It includes endpoint descriptions, request/response examples, and possible status codes for each operation.
